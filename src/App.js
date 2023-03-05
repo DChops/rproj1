@@ -1,21 +1,16 @@
 import './App.css';
-import { Disp } from './Disp';
+import {useState} from "react";
 
 function App() {
-  const planets = [
-    {name:"Earth", isGas:false},
-    {name:"Mars", isGas:false},
-    {name:"Jupyter", isGas:true},
-    {name:"Saturn", isGas:true},
-    {name:"Neptune", isGas:true},
-    {name:"Uranus", isGas:true},
-    {name:"Venus", isGas:false}
-  ];
+  const [num,setNum] = useState(0);
+  
   return (
   <div className="App">
-    {planets.map((planet,key) => {
-      return <Disp keys={key} name={planet.name} isGas={planet.isGas} />;
-    })}
+   <button onClick={() => { setNum(num+1) }}>Increase</button>
+   <button onClick={() => { setNum(num-1) }}>Decrease</button>
+   <button onClick={()=>{setNum(0)}}>SetZero</button>
+   <br></br>
+   {num}
   </div>
   );
 }
